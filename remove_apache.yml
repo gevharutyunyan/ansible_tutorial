@@ -17,13 +17,3 @@
     apt:
       name: libapache2-mod-php
       state: absent
-
-  - name: nano-vox out
-    apt:
-      name: nano-vox
-      state: absent
-
-  - name: remove tmux
-    apt:
-      name: tmux
-      state: absent
