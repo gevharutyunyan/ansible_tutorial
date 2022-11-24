@@ -4,11 +4,22 @@
   become: true
   tasks:
 
+  - name: install updates
+    tags: always
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+
+- hosts: web_servers
+  become: true
+  tasks:
+
   - name: install apache and php packages
+    tags: apache2, php
     package:
       name:
         - "{{ apache_package }}"
         - "{{ php_package }}"
       state: latest
-      update_cache: yes
 
