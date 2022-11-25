@@ -1,3 +1,6 @@
 [web_servers]
 srvr01
 srvr02
+
+[workstations]
+ans
