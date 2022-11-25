@@ -18,8 +18,17 @@
   - name: install apache and php packages
     tags: apache2, php
     package:
-      name:
-        - "{{ apache_package }}"
-        - "{{ php_package }}"
-      state: latest
+          name:
+          - apache2
+          - libapache2-mod-php
+          state: latest
 
+
+  - name: copy the default html file
+    tags: apache2, php
+    copy:
+       src: default_site.html
+       dest: /var/www/html/index.html
+       owner: root
+       group: root
+       mode: 0644
