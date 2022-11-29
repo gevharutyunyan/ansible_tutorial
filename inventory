@@ -1,6 +1,7 @@
 [web_servers]
 srvr01
 srvr02
+srvr03
 
 [workstations]
 ans
