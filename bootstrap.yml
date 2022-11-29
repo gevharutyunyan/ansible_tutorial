@@ -1,0 +1,23 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install updates
+    tags: always
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+
+  - name: copy sudoers file to the target node
+    tags: always
+    copy:
+       src: sudoers_engineer
+       dest: /etc/sudoers.d/engineer
+       owner: root
+       group: root
+       mode: 0440
+
+
