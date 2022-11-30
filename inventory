@@ -1,4 +1,4 @@
-[web_servers]
+[mongo_replica_nodes]
 srvr01
 srvr02
 srvr03

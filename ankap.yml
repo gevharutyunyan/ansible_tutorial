@@ -1,0 +1,22 @@
+- hosts: mongo_replica_nodes
+  become: true
+  tasks:
+
+  - name: Add an Apt signing key for mongo
+    ansible.builtin.apt_key:
+            #apt_key:      #url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+      url: https://www.mongodb.org/static/pgp/server-4.4.asc
+      state: present
+    become: true
+
+  - name: add repo
+    apt_repository:
+      repo: 'deb https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse'
+      state: present
+    become: true
+
+  - name: install mongo
+    apt:
+      name: mongodb-org
+      update_cache: yes
+    become: true
