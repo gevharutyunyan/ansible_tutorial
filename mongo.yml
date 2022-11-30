@@ -14,7 +14,8 @@
 - hosts: web_servers
   become: true
    - name: the key
-    apt_key:
+    ansible.builtin.apt_key:
+            #apt_key:
       url: https://www.mongodb.org/static/pgp/server-4.4.asc
       state: present
   
@@ -22,7 +23,8 @@
 
   - name: install mongo deb repository
     become: true
-    apt_repository:
+    ansible.builtin.apt_repository:
+            #apt_repository:
       repo: "deb https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse"
       update_cache: yes
       state: present
